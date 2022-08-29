@@ -22,4 +22,4 @@ const updateLetters = (letter) => {
 //Update tile markeup
 const updateTiles = () => {};
 
-//Delete lat letter
+//Delete last letter
