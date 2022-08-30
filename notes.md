@@ -11,19 +11,31 @@
 Detect any key presses
 
 - if key press is a letter
-    - update "letters" attribute
-        - update tile html markup based on "letters" value
+- update "letters" attribute
+- update tile html markup based on "letters" value
 - if keypress is backspace
-    - delete last letter in "letters"
-        - update tile markeup based on "letters"
+- delete last letter in "letters"
+- update tile markeup based on "letters"
 
 Typing in the letter will display the letter in the tile
 Backspace will delete letters
-Enter will submit guess
+
+### Pick a solution word
+
+Store solution words in JSON object/orray
+When game is loaded, choose random item from array
+Set solution to that word
+
+### Submit guess
+
+Pressing enter will submit guess
+    -compare each letter with the corresponding letter in solution word
+    -update the state/color of the letter
+    -if all letters are "correct" / green, game is won
 
 Guesses must be a real word in "word list" (API?)
 
-Guess colors (data-state): 
+Guess colors (data-state):
     - gray: "absent" letter not in word
     - yellow: "present", letter in word, but in wrong position
     - green: "correct", letter in word and in right position
@@ -52,3 +64,5 @@ When submitting a guess:
 - make words generated from the children's word list (create row length from longest word, then gray out the extra spaces for each shorter word)
 - ADVANCED: when children guess word correctly they must type in the proper Korean word before the next word is revealed
 - ADVANCED: create a story-line with blanks where the children have to guess the word inside the sentence? 
+- BEGINNER: provide pre-made array word list
+- MEDIUM: create your own word list/ take turns

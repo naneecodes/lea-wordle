@@ -10,7 +10,21 @@
         width: rem(52);
         height: rem(52);
         display: flex;
-        place-items: center;
+        justify-content: center;
+        align-items: center;
+        font-size: rem(32);
+        font-weight: 200;
+    }
+    .correct {
+        background-color: hsl(115, 29%, 43%);
     }
 
+    .present {
+        background-color: hsl(49, 51%, 47%);
+    }
+
+    .absent {
+        background-color: hsl(240, 2%, 23%);
+    }
+   
  }
