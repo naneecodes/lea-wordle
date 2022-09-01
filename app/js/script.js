@@ -28,11 +28,17 @@ document.addEventListener("keydown", (e) => {
   }
   //If enter
   else if (e.key == "Enter" && currentGuess.dataset.letters.length == 5) {
-    for (let i = 0; i < 5; i++) {
-      revealTile(i, checkLetter(i));
-    }
+    submitGuess();
   }
 });
+
+const submitGuess = () => {
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      revealTile(i, checkLetter(i));
+    }, i * 200);
+  }
+};
 
 //Update "letters" attribute
 const updateLetters = (letter) => {
