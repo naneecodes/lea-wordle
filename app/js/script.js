@@ -47,6 +47,7 @@ const updateLetters = (letter) => {
 const updateTiles = (tileNumber, letter) => {
   let currentTile = document.querySelector("#guessTile" + tileNumber);
   currentTile.innerText = letter;
+  currentTile.classList.add("has-letter");
 };
 
 //Backspace - Delete last letter
@@ -61,7 +62,9 @@ const deleteFromLetters = () => {
 //Backspace - Delete tile markup
 const deleteFromTiles = (tileNumber) => {
   //remove markup from last tile
-  document.querySelector("#guessTile" + tileNumber).innerText = "";
+  let currentTile = document.querySelector("#guessTile" + tileNumber);
+  currentTile.innerText = "";
+  currentTile.classList.remove("has-letter");
 };
 
 //Check letter to solution
@@ -89,11 +92,24 @@ const checkLetterExists = (letter) => {
 const revealTile = (i, status) => {
   let tileNum = i + 1;
   let tile = document.querySelector("#guessTile" + tileNum);
-  if (status == "correct") {
-    tile.classList.add("correct");
-  } else if (status == "present") {
-    tile.classList.add("present");
-  } else if (status == "absent") {
-    tile.classList.add("absent");
-  }
+  // if (status == "correct") {
+  //   tile.classList.add("correct");
+  // } else if (status == "present") {
+  //   tile.classList.add("present");
+  // } else if (status == "absent") {
+  //   tile.classList.add("absent");
+  // }
+  flipTile(tileNum, status);
+};
+
+const flipTile = (tileNum, status) => {
+  let tile = document.querySelector("#guessTile" + tileNum);
+  tile.classList.add("flip-in");
+  setTimeout(() => {
+    tile.classList.add(status);
+  }, 250);
+  setTimeout(() => {
+    tile.classList.remove("flip-in");
+    tile.classList.add("flip-out");
+  }, 250);
 };
